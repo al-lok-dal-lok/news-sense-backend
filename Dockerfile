@@ -10,6 +10,9 @@ COPY gradle/ ./gradle/
 # Copy source code
 COPY src ./src
 
+# Debug: Check if wrapper jar exists
+RUN ls -la gradle/wrapper/ && file gradle/wrapper/gradle-wrapper.jar
+
 # Build the application
 RUN ./gradlew clean bootJar --no-daemon
 
