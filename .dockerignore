@@ -1,0 +1,24 @@
+# Git
+.git
+.gitignore
+
+# Build
+build/
+target/
+*.jar
+*.war
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Gradle
+.gradle/
+gradle/wrapper/gradle-wrapper.jar
+
+# Env
+.env
+.env.local
+*.log

@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: newssense-backend
+
+  datasource:
+    # AWS RDS PostgreSQL
+    url: jdbc:postgresql://${AWS_DB_ENDPOINT:news-sense.czgq8mws4kzm.ap-northeast-2.rds.amazonaws.com}:5432/news-sense
+    username: postgres
+    password: ${AWS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: public
+        jdbc:
+          time_zone: Asia/Seoul
+
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    timeout: 3000ms
+
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+
+logging:
+  level:
+    com.sesac.newssense: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.web: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
