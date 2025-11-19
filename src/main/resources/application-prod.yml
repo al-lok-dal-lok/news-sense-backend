@@ -27,11 +27,10 @@ spring:
         jdbc:
           time_zone: Asia/Seoul
 
-  redis:
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
-    password: ${REDIS_PASSWORD:}
-    timeout: 3000ms
+  data:
+    redis:
+      url: ${REDIS_URL:redis://localhost:6379}
+      timeout: 3000ms
 
 server:
   port: ${PORT:8080}
