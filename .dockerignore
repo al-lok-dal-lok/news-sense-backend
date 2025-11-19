@@ -6,6 +6,7 @@
 build/
 target/
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 *.war
 
 # IDE
@@ -16,7 +17,6 @@ target/
 
 # Gradle
 .gradle/
-gradle/wrapper/gradle-wrapper.jar
 
 # Env
 .env
